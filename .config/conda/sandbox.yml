@@ -1,0 +1,11 @@
+name: sandbox
+dependencies:
+  - python
+  - pip
+  - pip:
+      - autopep8
+      - gspread
+      - isort
+      - oauth2client
+      - python-dotenv
+      - requests
