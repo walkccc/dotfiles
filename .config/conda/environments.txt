@@ -1,0 +1,2 @@
+/opt/homebrew/anaconda3/envs/sandbox
+/opt/homebrew/anaconda3

@@ -1,0 +1,16 @@
+name: mkdocs
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - autopep8
+  - beautifulsoup4
+  - gspread
+  - isort
+  - mkdocs
+  - mkdocs-material
+  - mkdocs-material-extensions
+  - oauth2client
+  - python-dotenv
+  - requests
+
