@@ -1,0 +1,41 @@
+[init]
+  defaultBranch = main
+[user]
+  name = Peng-Yu Chen
+  email = me@pengyuc.com
+  username = walkccc
+[core]
+  excludesfile = /Users/Jay/.gitignore_global
+  editor = lvim
+[alias]
+  br = branch
+  co = checkout
+  cm = commit -m
+  d = diff
+  dv = difftool -t vimdiff -y
+  gl = config --global -l
+  ll = log --oneline
+  pf = push -f
+  ra = rebase --abort
+  rc = rebase --continue
+  rr = rebase -i --root
+  rv = remote -v
+  su = stash -u
+  sc = stash clear
+  sp = stash pop
+  st = status -sb
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[push]
+  autoSetupRemote = true
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[commit]
+  template = /Users/Jay/.stCommitMsg
