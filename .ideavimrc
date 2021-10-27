@@ -1,0 +1,99 @@
+inoremap jk <Esc>
+
+set NERDTree
+set clipboard+=unnamed
+set ideajoin
+set idearefactormode=keep
+set ignorecase
+set hlsearch
+set scrolloff=7
+set smartcase
+set surround
+
+let mapleader = " "
+
+" NERDTree
+map nt :NERDTree<CR>
+
+" Move line(s)
+nmap <A-k> :action MoveLineUp<CR>
+nmap <A-j> :action MoveLineDown<CR>
+vmap <A-k> :action MoveLineUp<CR>
+vmap <A-j> :action MoveLineDown<CR>
+
+" Switch windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" Toggle full-sized window
+nmap <C-b> :action HideAllWindows<CR>
+
+" Navigate between splitters
+nmap <Leader>wl :action NextSplitter<CR>
+nmap <Leader>wh :action PrevSplitter<CR>
+
+" Split manipulation
+nmap <C-v> :action SplitVertically<CR>
+nmap <C-x> :action SplitHorizontally<CR>
+nmap <Leader>wc :action Unsplit<CR>
+nmap <Leader>wC :action UnsplitAll<CR>
+
+" Idea's Actions (:actionlist to see more)
+nmap <Leader>M :action ActivateStructureToolWindow<CR>
+nmap <Leader>h :action Back<CR>
+nmap <Leader>C :action CallHierarchy<CR>
+nmap <Leader>; :action FileStructurePopup<CR>
+nmap <Leader>u :action FindUsages<CR>
+nmap <Leader>t :action GotoTest<CR>
+nmap <Leader>f :action GotoFile<CR>
+nmap <Leader>c :action GotoClass<CR>
+nmap <Leader>s :action GotoSymbol<CR>
+nmap <Leader>i :action GotoImplementation<CR>
+nmap <Leader>U :action GotoSuperMethod<CR>
+nmap <Leader>p :action JumpToLastWindow<CR>
+nmap <Leader>rl :action RecentLocations<CR>
+nmap <Leader>rf :action RecentFiles<CR>
+nmap <Leader>rc :action RecentChangedFiles<CR>
+nmap <Leader>I :action SelectIn<CR>
+nmap <Leader>b :action ShowBookmarks<CR>
+nmap <Leader>d :action ShowErrorDescription<CR>
+nmap <Leader>m :action ToggleBookmark<CR>
+
+" Errors
+nmap <Leader>x :action GotoNextError<CR>
+nmap <Leader>X :action GotoPreviousError<CR>
+
+" Refactors
+vmap <Leader>rm :action ExtractMethod<CR>
+nmap <Leader>rr :action RenameElement<CR>
+nmap <Leader>rg :action Generate<CR>
+nmap <Leader>rI :action OptimizeImports<CR>
+
+" Toggle Terminal
+nmap <C-\> :action ActivateTerminalToolWindow<CR>
+
+" Switch Tabs
+nmap <S-l> :action NextTab<CR>
+nmap <S-h> :action PreviousTab<CR>
+
+" Search
+nmap <Leader>/ :action Find<CR>
+nmap <Leader>\ :action FindInPath<CR>
+
+" Font size
+nmap <C-=> :action EditorIncreaseFontSize<CR>
+nmap <C--> :action EditorDecreaseFontSize<CR>
+
+" Build, Run, and Debug
+nmap ,c :action CompileDirty<CR>
+nmap ,r :action Run<CR>
+nmap ,R :action RunAnything<CR>
+nmap ,b :action Debug<CR>
+nmap ,c :action RunClass<CR>
+nmap ,d :action DebugClass<CR>
+nmap ,t :action RerunTests<CR>
+nmap ,T :action RerunFailedTests<CR>
+nmap ,p :action ToggleLineBreakpoint<CR>
+nmap ,i :action ParameterInfo<CR>

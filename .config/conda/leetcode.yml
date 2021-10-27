@@ -1,0 +1,15 @@
+name: leetcode
+dependencies:
+  - python
+  - pip:
+      - autopep8
+      - isort
+      - requests
+      - gspread
+      - oauth2client
+      - python-dotenv
+      # walkccc/LeetCode scripts branch requirements.txt
+      - mkdocs
+      - mkdocs-material
+      - pymdown-extensions
+      - mkdocs-material-extensions
