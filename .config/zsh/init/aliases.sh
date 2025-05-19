@@ -36,4 +36,4 @@ alias clc="cd $REPOS/LeetCode"
 
 # System Utilities
 alias la="ls -la"
-alias sz="source $HOME/.config/zsh/.zshrc"
+alias ez="exec zsh"
