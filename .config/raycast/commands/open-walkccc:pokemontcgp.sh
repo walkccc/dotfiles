@@ -12,4 +12,4 @@
 # @raycast.author Peng-Yu Chen
 # @raycast.authorURL pengyuc.com
 
-cursor ~/Repos/nextjs/pokemontcgp
+cursor ~/Repos/pokemontcgp
