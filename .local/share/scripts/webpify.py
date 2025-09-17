@@ -2,8 +2,37 @@ import argparse
 import os
 import shutil
 from pathlib import Path
+import re
 
 from PIL import Image
+
+
+def expand_brace_pattern(pattern: str):
+  """
+  Expands a path pattern with brace expansion, e.g. /foo/{a,b}/bar -> ['/foo/a/bar', '/foo/b/bar']
+  Only supports a single level of braces.
+  """
+  # Find the first {...} pattern
+  match = re.search(r'\{([^}]+)\}', pattern)
+  if not match:
+    return [pattern]
+  before = pattern[:match.start()]
+  after = pattern[match.end():]
+  options = match.group(1).split(',')
+  expanded = []
+  for opt in options:
+    expanded += expand_brace_pattern(before + opt + after)
+  return expanded
+
+
+def expand_folders_arg(folders):
+  """
+  Expands all brace patterns in the list of folder arguments.
+  """
+  expanded = []
+  for folder in folders:
+    expanded += expand_brace_pattern(folder)
+  return expanded
 
 
 def convert_png_to_webp_and_preserve(
@@ -43,15 +72,17 @@ def convert_png_to_webp_and_preserve(
 if __name__ == "__main__":
   parser = argparse.ArgumentParser(
       description="Convert PNG files to WebP format (lossless) and preserve originals.")
-  parser.add_argument("--folders", "-f", nargs='+',
-                      default=["/some/path/to/images"],
-                      help="Path(s) to the folder(s) containing PNG files")
+  parser.add_argument(
+      "--folders", "-f", nargs='+', default=["/some/path/to/images"],
+      help="Path(s) to the folder(s) containing PNG files. Supports brace expansion, e.g. /foo/{a,b}/bar")
   parser.add_argument("--backup", "-b",
                       default="/tmp/images",
                       help="Folder to store original PNGs")
   args = parser.parse_args()
 
-  for folder in args.folders:
+  expanded_folders = expand_folders_arg(args.folders)
+
+  for folder in expanded_folders:
     print(f"Processing folder: {folder}")
     convert_png_to_webp_and_preserve(folder, args.backup,
                                      quality=100, lossless=True)
