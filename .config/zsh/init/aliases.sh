@@ -10,7 +10,7 @@ export DOCKER_CONFIG=$HOME/.config/docker
 export REPOS=$HOME/Repos
 
 # PATH Configuration
-export PATH="/Users/Jay/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:~/go/bin"
 
 # LunarVim and Cursor Shortcuts
